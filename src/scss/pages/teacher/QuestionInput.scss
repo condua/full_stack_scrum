@@ -1,0 +1,29 @@
+.QuestionInput{
+    .question_content, .option{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: left;
+        flex-direction: row;
+        align-items: center;
+        input[type=text]{
+            height: 50%;
+            width: 450px;
+            border-radius: 10px;
+            cursor: pointer;
+            padding: 0px 10px 0px 10px;
+        }
+        span{
+            width: 150px;
+        }
+        button{
+            height: 60%;
+            margin-left: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+
+        }
+
+    }
+
+}
