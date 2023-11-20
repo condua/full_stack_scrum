@@ -38,6 +38,7 @@ const Header = () => {
           <a href="/quiz">Câu hỏi trắc nghiệm</a>
           <a href="/quizkahoot">Kahoot Quiz</a>
           <a href="/ranking">Bảng xếp hạng</a> */}
+          <a href="/login">Logout</a>
 
         </div>
       </div>

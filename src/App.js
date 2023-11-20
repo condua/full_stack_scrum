@@ -11,6 +11,9 @@ import CreateExam from './pages/teacher/CreateExam';
 
 import ExamList from './pages/teacher/ExamList';
 import EditQuestion from './pages/teacher/EditQuestion';
+import ExamListAll from './pages/teacher/ExamListAll';
+import StudentTable from './pages/teacher/StudentTable';
+
 function App() {
   return (
     <BrowserRouter>
@@ -25,6 +28,8 @@ function App() {
         <Route path='/teacher/exams' element={<CreateExam/>}/>
 
         <Route path="/teacher/examslist" element={<ExamList/>} />
+        <Route path="/teacher/examslistall" element={<ExamListAll/>} />
+        <Route path="/teacher/list-submits/:id" element={<StudentTable/>} />
 
         <Route path="/teacher/examslist/edit/:id" element={<EditQuestion/>} />
         {/* <Route path='/joinroom' element={<JoinRoom/>}/> */}

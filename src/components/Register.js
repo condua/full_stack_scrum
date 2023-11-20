@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../scss/components/Register.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+  const navigate = useNavigate()
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -22,7 +24,8 @@ const Register = () => {
         role: 'student', // Set the role here
       });
       console.log(response.data);
-      alert(response.data.message)
+      alert(response.data.message);
+      navigate("/login")
     } catch (error) {
       console.error('Error registering user:', error.response.data.error);
       alert(error.response.data.error)

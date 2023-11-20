@@ -9,7 +9,8 @@ const ExamDetails = () => {
   const [exam, setExam] = useState(null);
   const [answers, setAnswers] = useState({});
   const navigate = useNavigate()
-  console.log(id)
+  const userId = localStorage.getItem("userId");
+  if (!userId) navigate('/login');
   const handleAnswerChange = (questionId, isCorrect) => {
     setAnswers((prevAnswers) => ({
       ...prevAnswers,
@@ -17,7 +18,7 @@ const ExamDetails = () => {
     }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     let score = 0;
     const questionIds = Object.keys(answers);
     for (let i = 0; i < questionIds.length; i++) {
@@ -28,11 +29,16 @@ const ExamDetails = () => {
       }
     }
     const totalQuestions = questionIds.length;
-    const adjustedScore = (score / totalQuestions) * 10;
+    const adjustedScore = Math.floor((score / totalQuestions) * 10);
 
 
-    alert(`Điểm của bạn là ${adjustedScore}`)
-    navigate('/exams')
+    const res = await  axios.post("http://localhost:5000/exam/submit",{
+      userId,
+      examId: id,
+      score: adjustedScore
+    })
+    alert(`Your score: ${res.data.score}`);
+    navigate("/exams")
 
   };
 
@@ -55,9 +61,9 @@ const ExamDetails = () => {
       {exam ? (
         <div>
           <h1 style={{textAlign:'center'}}>{exam.examName}</h1>
-          {exam.questions.map((question) => (
+          {exam.questions.map((question,index) => (
             <div key={question._id}>
-              <h3>{question.questionContent}</h3>
+              <h3>{index+1}. {question.questionContent}</h3>
               {question.options.map((option) => (
                 <div key={option._id}>
                   <input

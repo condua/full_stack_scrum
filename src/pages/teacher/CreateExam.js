@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import QuestionInput from './QuestionInput';
 import '../../scss/pages/teacher/CreateExams.scss'
+import { useNavigate } from 'react-router-dom';
 const CreateExam = () => {
   const [examName, setExamName] = useState('');
   const [questions, setQuestions] = useState([]);
+
+  const navigate = useNavigate()
 
   const handleAddQuestion = () => {
     setQuestions([...questions, { questionContent: '', options: [] }]);
   };
 
+  //hàm xử lý thay đổi question
   const handleQuestionChange = (index, questionData) => {
     const updatedQuestions = [...questions];
     updatedQuestions[index] = questionData;
@@ -56,6 +60,8 @@ const CreateExam = () => {
       ))}
       <div style={{width:'100%', display:'flex',alignItems:'center',justifyContent:'center',marginBottom:'20px',marginTop:'10px'}}>
         <button style={{padding:'10px',borderRadius:'10px'}} className='button_create' onClick={handleSubmit}>Create Exam</button>
+        <button style={{padding:'10px',borderRadius:'10px',marginLeft:'30px'}} className='button_create' onClick={()=>navigate('/teacher/examslist')}>Back home</button>
+
       </div>
     </div>
   );

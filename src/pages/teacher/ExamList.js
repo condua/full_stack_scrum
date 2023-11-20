@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import '../../scss/pages/teacher/ExamList.scss'
 
 const ExamList = () => {
   const [exams, setExams] = useState([]);
@@ -20,18 +21,40 @@ const ExamList = () => {
   }, []);
 
   return (
-    <div>
+    <div className='Exam_list'>
       <h2>Exam List</h2>
-      <ul>
-        {exams.map((exam) => (
-          <li key={exam._id}>
-            {/* Link to the EditExam page for the specific exam */}
+      <button>
+      <Link to={"/teacher/exams"}>
+        Add Exam
+      </Link>
+      </button>
+     
+      <table className='tableList'>
+        <thead>
+          <td>Stt</td>
+          <td>Name</td>
+          <td>Action</td>
+        </thead>
+        <tbody>
+        {
+          exams.map((exam, index) => (
+          <tr key={index}>
+            <td>{index+1}</td>
+            <td>
             <Link to={`/teacher/examslist/edit/${exam._id}`}>
               {exam.examName}
             </Link>
-          </li>
-        ))}
-      </ul>
+            </td>
+            <td>
+            <Link to={`/teacher/list-submits/${exam._id}`}>
+              View
+            </Link>
+            </td>
+          </tr>
+        ))
+        }
+        </tbody>
+      </table>
     </div>
   );
 };

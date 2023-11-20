@@ -8,10 +8,20 @@ const QuestionInput = ({ index, questionData, onChange, onDelete }) => {
   const handleAddOption = () => {
     setOptions([...options, { option: '', isCorrect: false }]);
   };
+  
 
+
+  //Hàm xử lý thay đổi option
   const handleOptionChange = (optionIndex, newOption) => {
-    const updatedOptions = [...options];
-    updatedOptions[optionIndex] = newOption;
+    //create variable updateOptions
+    const updatedOptions = options.map((opt, index) => {
+      if (index === optionIndex) {
+        return newOption; // Set the new option
+      } else {
+        return { ...opt, isCorrect: false }; // Reset isCorrect for other options
+      }
+    });
+  
     setOptions(updatedOptions);
     onChange(index, { questionContent, options: updatedOptions });
   };
@@ -35,7 +45,7 @@ const QuestionInput = ({ index, questionData, onChange, onDelete }) => {
     <div className='QuestionInput'>
       <div className='question_content'>
         <span style={{width:'150px'}}>Question Content:</span>
-        <input type="text" value={questionContent} onChange={(e) => setQuestionContent(e.target.value)} onBlur={handleQuestionChange} />
+        <textarea type="text" value={questionContent} onChange={(e) => setQuestionContent(e.target.value)} onBlur={handleQuestionChange} />
         <button onClick={handleAddOption}>Add Option</button>
         <button onClick={handleDeleteQuestion}>Delete Question</button>
 

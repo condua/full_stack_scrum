@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../scss/components/Login.scss'
 import data from '../json/password.json'
@@ -20,11 +20,15 @@ const Login = () => {
     
           console.log('Login successful!', response.data);
           const role = response.data.user.role;
-
+          const userId = response.data.user._id;
           // Save the role in localStorage
           localStorage.setItem('userRole', role);
-          alert('Login successful!')
-          navigate('/exams')
+          localStorage.setItem('userId', userId);
+          if (role=='teacher'){
+            navigate('/teacher/examslist')
+          } else {
+            navigate('/exams')
+          }
         } catch (error) {
           console.error('Login failed!', error);
           alert('Wrong email or password')
@@ -50,6 +54,7 @@ const Login = () => {
                         Login
                     </button>
                 </div>
+            <Link to={'/register'}> Register</Link>
             </div>
         </div>
     );

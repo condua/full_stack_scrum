@@ -72,6 +72,8 @@ const EditExam = () => {
     }));
   };
 
+
+  //Hàm xử lý lựa chọn của option
   const handleAddOption = (questionIndex) => {
     setExam((prevExam) => {
       const updatedQuestions = [...prevExam.questions];
@@ -85,6 +87,12 @@ const EditExam = () => {
       };
     });
   };
+   
+  const handleDeleteOption = (questionIndex) => {
+     const updateOptions = [...questionIndex];
+     updateOptions.splice(questionIndex,1);
+     
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -156,6 +164,7 @@ const EditExam = () => {
                       })
                     }
                   />
+                  <button>Delete option</button>
                 </label>
               </div>
             ))}
