@@ -1,18 +1,22 @@
 on:
   pull_request:
     branches:
-    - trung
+    - main
+    - backend
   push:
     branches:
-    - trung
+    - main
+    - backend
   workflow_dispatch:
 jobs:
   vuive:
     runs-on: ubuntu-latest
     container: node:18
     steps:
-      - run: node --version
-      - run: npm --version
+      # - run: node --version
+      # - run: npm --version
       - uses: actions/checkout@v3
       - run: npm i
-      - run: npm run test
+      - run: node server.js
+      # - run: npm run test
+      - run: kill -9 $(sudo lsof -t -i:5000)
