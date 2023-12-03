@@ -19,3 +19,5 @@ jobs:
         run: npm ci
       - name: Code quality
         run: npx @biomejs/biome ci ./ --verbose
+      - name: Run tests
+        run: npm test

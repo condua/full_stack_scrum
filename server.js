@@ -13,15 +13,12 @@ const authenticateToken = require('./middleWare/authenticateToken');
 const Submit = require('./models/submitModal');
 
 const app = express();
-const router = express.Router();
 
 app.use(bodyParser.json());
 
 app.use(express.json());
 
 app.use(cors());
-
-// app.use(authenticateToken);
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*'); // Cho phép tất cả các domain truy cập API (thay * thành domain của trang web của bạn nếu bạn chỉ muốn cho phép một domain cụ thể)
@@ -408,9 +405,6 @@ app.delete('/products/:id', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-app.listen(5000, () => {
-  console.log('Node api app is running on port 5000');
-});
 
 // connect to mongodb
 mongoose
@@ -423,3 +417,5 @@ mongoose
   .catch((error) => {
     console.log(error);
   });
+
+module.exports = app;
