@@ -4,9 +4,7 @@ const requester = require('./commonTest').requester;
 
 const TESTING_ENDPOINT = "/login";
 
-ACCESS_TOKEN_SECRET = "33e63cdbf2c1b7c12bdef634d08f82bedc42a252963dfade0401af3c354cf3fa";
-
-describe(`Testing POST: ${TESTING_ENDPOINT}`, function() {
+describe(`Test response for POST: ${TESTING_ENDPOINT}`, function() {
     let response = null;
     let called = false;
     let index = 0;
@@ -26,32 +24,10 @@ describe(`Testing POST: ${TESTING_ENDPOINT}`, function() {
                     })
                     .send(userLogin)
                     .expect(userLogin.desiredStatus)
-                    .then( async function(res) {
+                    .then(function(res) {
                         response = res;
-
-                        // if (userLogin.desiredStatus !== 200) {       
-
-                           
-                        //     // console.log("++++++++++");
-                        //     done();
-
-                        //     return;
-                        // }
-                        // else if (userLogin.desiredStatus === 200) {
-                        //     // let verifiedData = await jwt.verify(res.body.token, ACCESS_TOKEN_SECRET);
-
-                        //     // expect(verifiedData.email).toEqual(userLogin.email);
-
-                        //     // expect(res.body.user).toBeDefined();
-                        //     // console.log("---------------");
-                        //     done();
-
-                        //     return;
-                        // }
-
-                        // throw new Error(`Unknown Response Body: ${JSON.stringify(res.body)}`);
                         done();
-                    } )
+                    })
                     .catch(function(err) {
                         console.log("Exception Occured in Testing : ", err)
                         done(err);
@@ -59,9 +35,6 @@ describe(`Testing POST: ${TESTING_ENDPOINT}`, function() {
             });
 
             called = true;
-            // test("Should test whether returned status matched!", function() {
-            //     expect(responseBody.fullname).toEqual(userLogin.fullname);
-            // });
         }
         else {
             const testMessage = `Data |Email: ${userLogin.email}| |Password: ${userLogin.password}|`;
@@ -97,14 +70,23 @@ describe(`Testing POST: ${TESTING_ENDPOINT}`, function() {
             });
 
             test("6: Should test whether response data matched if success!", function() {
-                if (response.status == 200) {
-                    expect(response.body.fullname).toEqual(userLogin.fullname);
+                if (response.status > 199 && response.status < 300) {
+                    expect(response.body.user.fullname).toEqual(userLogin.fullname);
+
+                    expect(response.body.user.email).toEqual(userLogin.email);
                 }
             });
 
-            test("7: Should for Allow Header Authorization in response!", function() {
+            test("7: Should test for Allow Header Authorization in response!", function() {
                 expect(response.header['access-control-allow-headers']).toEqual("Content-Type, Authorization");
             });
+
+            test("8: Should test for Bad Request When Request Has Missing Field!", function() {
+                if (response.status === 400) {
+                    expect(!userLogin.email || !userLogin.password).toBe(true);
+                }
+            });
+
             // else if (response.status === 200) {
             //     test("3: Should test whether response data contain token!", function() {
             //         expect( typeof(res.body.token) ).toBe("string");

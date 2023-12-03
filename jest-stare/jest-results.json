@@ -1,14 +1,14 @@
 {
   "numFailedTestSuites": 0,
   "numFailedTests": 0,
-  "numPassedTestSuites": 1,
-  "numPassedTests": 9,
+  "numPassedTestSuites": 3,
+  "numPassedTests": 26,
   "numPendingTestSuites": 0,
   "numPendingTests": 0,
   "numRuntimeErrorTestSuites": 0,
   "numTodoTests": 0,
-  "numTotalTestSuites": 1,
-  "numTotalTests": 9,
+  "numTotalTestSuites": 3,
+  "numTotalTests": 26,
   "openHandles": [],
   "snapshot": {
     "added": 0,
@@ -26,21 +26,21 @@
     "unmatched": 0,
     "updated": 0
   },
-  "startTime": 1701423158263,
+  "startTime": 1701591493022,
   "success": false,
   "testResults": [
     {
       "leaks": false,
       "numFailingTests": 0,
-      "numPassingTests": 9,
+      "numPassingTests": 4,
       "numPendingTests": 0,
       "numTodoTests": 0,
       "openHandles": [],
       "perfStats": {
-        "end": 1701423159654,
-        "runtime": 1255,
-        "slow": false,
-        "start": 1701423158399
+        "end": 1701591499384,
+        "runtime": 6261,
+        "slow": true,
+        "start": 1701591493123
       },
       "skipped": false,
       "snapshot": {
@@ -52,46 +52,134 @@
         "unmatched": 0,
         "updated": 0
       },
-      "testFilePath": "C:\\Users\\Administrator\\Downloads\\SCRUM_TESTCLASS\\__test__\\loginStudent.test.js",
+      "testFilePath": "C:\\Users\\Administrator\\Downloads\\full_stack_scrum\\__test__\\db.test.js",
       "testResults": [
         {
           "ancestorTitles": [
-            "Testing POST: /login"
+            "Testing DB connection: /login"
           ],
-          "duration": 461,
+          "duration": 378,
           "failureDetails": [],
           "failureMessages": [],
-          "fullName": "Testing POST: /login Test get response data |Number 1|--|Email: teacher@gmail.com|--|Password: teacher|--|Desired Output: Wrong Credentials!!|",
+          "fullName": "Testing DB connection: /login Get response data |Number 1|--|Email: aa@aa.aa|--|Password: 1234|--|Desired Output: Login OK with teacher!!|",
           "invocations": 1,
           "location": null,
           "numPassingAsserts": 0,
           "retryReasons": [],
           "status": "passed",
-          "title": "Test get response data |Number 1|--|Email: teacher@gmail.com|--|Password: teacher|--|Desired Output: Wrong Credentials!!|"
+          "title": "Get response data |Number 1|--|Email: aa@aa.aa|--|Password: 1234|--|Desired Output: Login OK with teacher!!|"
         },
         {
           "ancestorTitles": [
-            "Testing POST: /login"
+            "Testing DB connection: /login"
           ],
-          "duration": 2,
+          "duration": 4413,
           "failureDetails": [],
           "failureMessages": [],
-          "fullName": "Testing POST: /login Start test Data |Email: teacher@gmail.com| |Password: teacher|",
+          "fullName": "Testing DB connection: /login Test response matched with DB--Data |Email: aa@aa.aa| |Password: 1234|",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 3,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "Test response matched with DB--Data |Email: aa@aa.aa| |Password: 1234|"
+        },
+        {
+          "ancestorTitles": [
+            "Testing DB connection: /login"
+          ],
+          "duration": 273,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Testing DB connection: /login Get response data |Number 2|--|Email: trung@gmail.com|--|Password: hihi|--|Desired Output: Wrong Credentials!!|",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "Get response data |Number 2|--|Email: trung@gmail.com|--|Password: hihi|--|Desired Output: Wrong Credentials!!|"
+        },
+        {
+          "ancestorTitles": [
+            "Testing DB connection: /login"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Testing DB connection: /login Test response matched with DB--Data |Email: trung@gmail.com| |Password: hihi|",
           "invocations": 1,
           "location": null,
           "numPassingAsserts": 1,
           "retryReasons": [],
           "status": "passed",
-          "title": "Start test Data |Email: teacher@gmail.com| |Password: teacher|"
+          "title": "Test response matched with DB--Data |Email: trung@gmail.com| |Password: hihi|"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 20,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1701591500372,
+        "runtime": 927,
+        "slow": false,
+        "start": 1701591499445
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "C:\\Users\\Administrator\\Downloads\\full_stack_scrum\\__test__\\response.test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Test response for POST: /login"
+          ],
+          "duration": 354,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Test response for POST: /login Get response data |Number 1|--|Email: aa@aa.aa|--|Password: 1234|--|Desired Output: Login OK with teacher!!|",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "Get response data |Number 1|--|Email: aa@aa.aa|--|Password: 1234|--|Desired Output: Login OK with teacher!!|"
         },
         {
           "ancestorTitles": [
-            "Testing POST: /login"
+            "Test response for POST: /login"
           ],
-          "duration": 1,
+          "duration": 4,
           "failureDetails": [],
           "failureMessages": [],
-          "fullName": "Testing POST: /login 1: Should test response body available",
+          "fullName": "Test response for POST: /login Start test Data |Email: aa@aa.aa| |Password: 1234|",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "Start test Data |Email: aa@aa.aa| |Password: 1234|"
+        },
+        {
+          "ancestorTitles": [
+            "Test response for POST: /login"
+          ],
+          "duration": 2,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Test response for POST: /login 1: Should test response body available",
           "invocations": 1,
           "location": null,
           "numPassingAsserts": 1,
@@ -101,12 +189,12 @@
         },
         {
           "ancestorTitles": [
-            "Testing POST: /login"
+            "Test response for POST: /login"
           ],
           "duration": 2,
           "failureDetails": [],
           "failureMessages": [],
-          "fullName": "Testing POST: /login 2: Should test response status matched",
+          "fullName": "Test response for POST: /login 2: Should test response status matched",
           "invocations": 1,
           "location": null,
           "numPassingAsserts": 1,
@@ -116,12 +204,162 @@
         },
         {
           "ancestorTitles": [
-            "Testing POST: /login"
+            "Test response for POST: /login"
           ],
           "duration": 1,
           "failureDetails": [],
           "failureMessages": [],
-          "fullName": "Testing POST: /login 3: Should test response body error message available if fail",
+          "fullName": "Test response for POST: /login 3: Should test response body error message available if fail",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "3: Should test response body error message available if fail"
+        },
+        {
+          "ancestorTitles": [
+            "Test response for POST: /login"
+          ],
+          "duration": 2,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Test response for POST: /login 4: Should test response body token message available if success",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "4: Should test response body token message available if success"
+        },
+        {
+          "ancestorTitles": [
+            "Test response for POST: /login"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Test response for POST: /login 5: Should test response body error message match if fail",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "5: Should test response body error message match if fail"
+        },
+        {
+          "ancestorTitles": [
+            "Test response for POST: /login"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Test response for POST: /login 6: Should test whether response data matched if success!",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 2,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "6: Should test whether response data matched if success!"
+        },
+        {
+          "ancestorTitles": [
+            "Test response for POST: /login"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Test response for POST: /login 7: Should test for Allow Header Authorization in response!",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "7: Should test for Allow Header Authorization in response!"
+        },
+        {
+          "ancestorTitles": [
+            "Test response for POST: /login"
+          ],
+          "duration": 2,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Test response for POST: /login 8: Should test for Bad Request When Request Has Missing Field!",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "8: Should test for Bad Request When Request Has Missing Field!"
+        },
+        {
+          "ancestorTitles": [
+            "Test response for POST: /login"
+          ],
+          "duration": 281,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Test response for POST: /login Get response data |Number 2|--|Email: trung@gmail.com|--|Password: hihi|--|Desired Output: Wrong Credentials!!|",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "Get response data |Number 2|--|Email: trung@gmail.com|--|Password: hihi|--|Desired Output: Wrong Credentials!!|"
+        },
+        {
+          "ancestorTitles": [
+            "Test response for POST: /login"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Test response for POST: /login Start test Data |Email: trung@gmail.com| |Password: hihi|",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "Start test Data |Email: trung@gmail.com| |Password: hihi|"
+        },
+        {
+          "ancestorTitles": [
+            "Test response for POST: /login"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Test response for POST: /login 1: Should test response body available",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "1: Should test response body available"
+        },
+        {
+          "ancestorTitles": [
+            "Test response for POST: /login"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Test response for POST: /login 2: Should test response status matched",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "2: Should test response status matched"
+        },
+        {
+          "ancestorTitles": [
+            "Test response for POST: /login"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Test response for POST: /login 3: Should test response body error message available if fail",
           "invocations": 1,
           "location": null,
           "numPassingAsserts": 1,
@@ -131,12 +369,12 @@
         },
         {
           "ancestorTitles": [
-            "Testing POST: /login"
+            "Test response for POST: /login"
           ],
           "duration": 1,
           "failureDetails": [],
           "failureMessages": [],
-          "fullName": "Testing POST: /login 4: Should test response body token message available if success",
+          "fullName": "Test response for POST: /login 4: Should test response body token message available if success",
           "invocations": 1,
           "location": null,
           "numPassingAsserts": 0,
@@ -146,12 +384,12 @@
         },
         {
           "ancestorTitles": [
-            "Testing POST: /login"
+            "Test response for POST: /login"
           ],
           "duration": 1,
           "failureDetails": [],
           "failureMessages": [],
-          "fullName": "Testing POST: /login 5: Should test response body error message match if fail",
+          "fullName": "Test response for POST: /login 5: Should test response body error message match if fail",
           "invocations": 1,
           "location": null,
           "numPassingAsserts": 1,
@@ -161,12 +399,12 @@
         },
         {
           "ancestorTitles": [
-            "Testing POST: /login"
+            "Test response for POST: /login"
           ],
           "duration": 1,
           "failureDetails": [],
           "failureMessages": [],
-          "fullName": "Testing POST: /login 6: Should test whether response data matched if success!",
+          "fullName": "Test response for POST: /login 6: Should test whether response data matched if success!",
           "invocations": 1,
           "location": null,
           "numPassingAsserts": 0,
@@ -176,18 +414,91 @@
         },
         {
           "ancestorTitles": [
-            "Testing POST: /login"
+            "Test response for POST: /login"
           ],
           "duration": 1,
           "failureDetails": [],
           "failureMessages": [],
-          "fullName": "Testing POST: /login 7: Should for Allow Header Authorization in response!",
+          "fullName": "Test response for POST: /login 7: Should test for Allow Header Authorization in response!",
           "invocations": 1,
           "location": null,
           "numPassingAsserts": 1,
           "retryReasons": [],
           "status": "passed",
-          "title": "7: Should for Allow Header Authorization in response!"
+          "title": "7: Should test for Allow Header Authorization in response!"
+        },
+        {
+          "ancestorTitles": [
+            "Test response for POST: /login"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Test response for POST: /login 8: Should test for Bad Request When Request Has Missing Field!",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "8: Should test for Bad Request When Request Has Missing Field!"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 2,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1701591500981,
+        "runtime": 557,
+        "slow": false,
+        "start": 1701591500424
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "C:\\Users\\Administrator\\Downloads\\full_stack_scrum\\__test__\\encrypt.test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Testing password encryption for Login Module!"
+          ],
+          "duration": 133,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Testing password encryption for Login Module! Should test matched pair of encrypted and raw password",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "Should test matched pair of encrypted and raw password"
+        },
+        {
+          "ancestorTitles": [
+            "Testing password encryption for Login Module!"
+          ],
+          "duration": 124,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Testing password encryption for Login Module! Should test unmatched pair of encrypted and raw password",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "Should test unmatched pair of encrypted and raw password"
         }
       ],
       "failureMessage": null

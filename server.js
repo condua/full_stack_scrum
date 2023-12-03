@@ -13,7 +13,7 @@ const authenticateToken = require('./middleWare/authenticateToken');
 const Submit = require('./models/submitModal');
 
 const app = express()
-const router = express.Router();
+// const router = express.Router();
 
 app.use(bodyParser.json());
 
@@ -74,28 +74,27 @@ async function compare(passwordInput, userPassword) {
   return await bcrypt.compare(passwordInput, userPassword);
 }
 app.post('/login', async (req, res) => {
-    const { email, password } = req.body;
+  const { email, password } = req.body;
+  const secret = '33e63cdbf2c1b7c12bdef634d08f82bedc42a252963dfade0401af3c354cf3fa'
+  // console.log(secret)
+  const user = await User.findOne({ email });
 
-    if (!email || !password) {
-      return res.status(400).json({ error: 'Bad Request' });
-    }
+  if (!user) {
+    return res.status(401).json({ error: 'Invalid credentials' });
+  }
 
-    const secret = '33e63cdbf2c1b7c12bdef634d08f82bedc42a252963dfade0401af3c354cf3fa'
-    // console.log(secret)
-    const user = await User.findOne({ email });
-  
-    if (!user) {
-      return res.status(401).json({ error: 'Invalid credentials' });
-    }
-  
-    if (!(await compare(password, user.password))) {
-      return res.status(401).json({ 'error': 'Invalid credentials' });
-    }
-  
-    const token = jwt.sign({  email: email }, secret);
-    // console.log(token)
-    res.status(200).json({ token, user  });
-  });
+  const isPasswordValid = await bcrypt.compare(password, user.password);
+
+  console.log(email + "------->>>>>" + isPasswordValid);
+
+  if (!isPasswordValid) {
+    return res.status(401).json({ 'error': 'Invalid credentials' });
+  }
+
+  const token = jwt.sign({  email: user.email }, secret);
+  // console.log(token)
+  res.json({ token,user });
+});
 
 // Middleware for token authentication
 
@@ -110,13 +109,13 @@ app.get('/users',authenticateToken, async (req, res) => {
       res.status(500).json({ error: 'Error retrieving users' });
     }
   });
-
+ 
 // API to get user profile
 app.get('/profile', authenticateToken, (req, res) => {
     const { username } = req.user; // Lấy thông tin người dùng từ token
     console.log(username)
     res.json({ username });
-  });
+});
 
 
 app.get('/hello',authenticateToken,(req,res)=>{
@@ -399,10 +398,6 @@ app.delete('/products/:id', async(req,res)=>{
         res.status(500).json({message:error.message})
     }
 })
-app.listen(5000, ()=>{
-    // console.log('Node api app is running on port 5000')
-})
-
 
 // connect to mongodb
 mongoose.connect('mongodb+srv://phanhoangphuc03111:phuc1755@cluster0.b576f71.mongodb.net/API-NODE?retryWrites=true&w=majority')
@@ -412,7 +407,12 @@ mongoose.connect('mongodb+srv://phanhoangphuc03111:phuc1755@cluster0.b576f71.mon
     console.log(error)
 })
 
+app.listen(5000, ()=>{
+  console.log('Node api app is running on port 5000')
+})
+
 module.exports = {
   hash,
-  compare
+  compare,
+  mongoose
 }
