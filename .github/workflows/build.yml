@@ -1,12 +1,10 @@
 on:
   pull_request:
     branches:
-    - main
-    - backend
+    - trung
   push:
     branches:
-    - main
-    - backend
+    - trung
   workflow_dispatch:
 jobs:
   vuive:
