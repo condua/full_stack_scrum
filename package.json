@@ -13,9 +13,16 @@
   },
   "jest": {
     "verbose": true,
+    "collectCoverage": true,
+    "collectCoverageFrom": ["./__test__/"],
     "coverageReporters": [
       "html"
-    ]
+    ],
+    "coverageThreshold": {
+      "global": {
+        "lines": 90
+      }
+    }
   },
   "keywords": [],
   "author": "",
