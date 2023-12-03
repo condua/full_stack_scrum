@@ -28,31 +28,31 @@ const request = require('supertest');
 // });
 
 describe("editExam", () => {
-    // test("should return the exam name after updated", async () => {
-    //     const createNewExam = await request(app)
-    //         .post('/exams')
-    //         .send({
-    //             examName: "Math",
-    //             questions: [
-    //                 {
-    //                     questionContent: "3 - 2= ?",
-    //                     options: [
-    //                         {
-    //                             option: "2",
-    //                             isCorrect: false
-    //                         },
-    //                         {
-    //                             option: "3",
-    //                             isCorrect: false
-    //                         },
-    //                         {
-    //                             option: "1",
-    //                             isCorrect: true
-    //                         },
-    //                     ]
-    //                 }
-    //             ]
-    //         })
+    test("should return the exam name after updated", async () => {
+        const createNewExam = await request(app)
+            .post('/exams')
+            .send({
+                examName: "Math",
+                questions: [
+                    {
+                        questionContent: "3 - 2= ?",
+                        options: [
+                            {
+                                option: "2",
+                                isCorrect: false
+                            },
+                            {
+                                option: "3",
+                                isCorrect: false
+                            },
+                            {
+                                option: "1",
+                                isCorrect: true
+                            },
+                        ]
+                    }
+                ]
+            })
 
     //     expect(createNewExam.statusCode).toEqual(201)
     //     expect(createNewExam.body.exam.examName).toBe("Math")
