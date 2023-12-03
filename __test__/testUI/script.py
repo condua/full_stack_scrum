@@ -137,6 +137,7 @@ class TestUILogin(AutoSufer):
 
 if __name__ == "__main__":
     options = Options()
+    options.add_argument("--headless")
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
     test_ui = TestUILogin(webdriver.Chrome(options=options))

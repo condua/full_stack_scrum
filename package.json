@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test-ui-unix":"cd __test__/testUI && python script.py",
     "test-ui-window": "cd .\\__test__\\testUI && .\\Scripts\\activate.bat && python script.py && deactivate",
     "test": "jest --reporters default jest-stare --coverage --detectOpenHandles --runInBand --forceExit --testTimeout=6800",
     "test:watch": "jest --verbose --watchAll",
