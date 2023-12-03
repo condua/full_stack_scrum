@@ -208,7 +208,7 @@ app.put('/exams/:id', async (req, res) => {
     }
 
     // Save the updated exam
-    // exam = await exam.save();
+    exam = await exam.save();
 
     res.json({ message: 'Exam updated successfully', exam });
   } catch (err) {
