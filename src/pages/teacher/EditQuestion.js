@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import '../../scss/pages/teacher/EditQuestion.scss';
 
 const EditExam = () => {
   const { id } = useParams();
@@ -108,7 +109,7 @@ const EditExam = () => {
   };
 
   return (
-    <div>
+    <div className='body_edit_exam'>
       <h2>Edit Exam {exam.examName}</h2>
       <form onSubmit={handleSubmit}>
         <label>
@@ -164,12 +165,12 @@ const EditExam = () => {
                       })
                     }
                   />
-                  <button>Delete option</button>
+                  <button className='deleteButton'>Delete option</button>
                 </label>
               </div>
             ))}
 
-            <button type="button" onClick={() => handleAddOption(questionIndex)}>
+            <button className='addButton' type="button" onClick={() => handleAddOption(questionIndex)}>
               Add Option
             </button>
           </div>
