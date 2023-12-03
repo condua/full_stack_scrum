@@ -15,5 +15,13 @@
         "desiredOutput": "Wrong Credentials!!",
         "desiredStatus": 401,
         "isValidCredential": false
+    },
+    {
+        "email": "trung@gmail.com",
+        "password": "trung",
+        "role": "student",
+        "desiredOutput": "Wrong Credentials!!",
+        "desiredStatus": 401,
+        "isValidCredential": false
     }
 ]

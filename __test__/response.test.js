@@ -57,12 +57,6 @@ describe(`Test response for POST: ${TESTING_ENDPOINT}`, function() {
                 }
             });
 
-            test("4: Should test response body token message available if success", function() {
-                if (response.status === 200) {
-                    expect( typeof(response.body.token) ).toBe("string");
-                }
-            });
-
             test("5: Should test response body error message match if fail", function() {
                 if (response.status > 300) {
                     expect(response.body.error.toLowerCase()).toBe( getErrorTextByStatus(userLogin.desiredStatus) );
