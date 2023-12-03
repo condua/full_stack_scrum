@@ -5,9 +5,11 @@ name: Node.js CI edit exam
 
 on:
   push:
-    branches: [ "editExam" ]
+    branches: 
+    - editExam
   pull_request:
-    branches: [ "editExam" ]
+    branches:
+    - editExam
     
   workflow_dispatch:
 
