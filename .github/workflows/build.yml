@@ -24,7 +24,8 @@ jobs:
   pytest:
     runs-on: ubuntu-latest
     container: nikolaik/python-nodejs:python3.11-nodejs18-alpine
-      - run: node --version
+    steps:
+      - run: node --version 
       - run: python --version
       - run: npm --version
       - run: node server.js &
