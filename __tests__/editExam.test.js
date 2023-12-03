@@ -28,79 +28,120 @@ const request = require('supertest');
 // });
 
 describe("editExam", () => {
-    // test("should return the exam name after updated", async () => {
-    //     const createNewExam = await request(app)
-    //         .post('/exams')
-    //         .send({
-    //             examName: "Math",
-    //             questions: [
-    //                 {
-    //                     questionContent: "3 - 2= ?",
-    //                     options: [
-    //                         {
-    //                             option: "2",
-    //                             isCorrect: false
-    //                         },
-    //                         {
-    //                             option: "3",
-    //                             isCorrect: false
-    //                         },
-    //                         {
-    //                             option: "1",
-    //                             isCorrect: true
-    //                         },
-    //                     ]
-    //                 }
-    //             ]
-    //         })
+    test("Should return the exam name after updated", async () => {
+        const createNewExam = await request(app)
+            .post('/exams')
+            .send({
+                examName: "Math",
+                questions: [
+                    {
+                        questionContent: "3 - 2 = ?",
+                        options: [
+                            {
+                                option: "2",
+                                isCorrect: false
+                            },
+                            {
+                                option: "3",
+                                isCorrect: false
+                            },
+                            {
+                                option: "1",
+                                isCorrect: true
+                            },
+                        ]
+                    }
+                ]
+            })
 
-    //     expect(createNewExam.statusCode).toEqual(201)
-    //     expect(createNewExam.body.exam.examName).toBe("Math")
+        expect(createNewExam.statusCode).toEqual(201)
+        expect(createNewExam.body.exam.examName).toBe("Math")
 
-    //     const examId = createNewExam.body.exam._id;
-    //     const res = await request(app)
-    //         .put(`/exams/${examId}`)
-    //         .send({
-    //             examName: "Bài thi mẫu",
-    //         })
+        const examId = createNewExam.body.exam._id;
+        const res = await request(app)
+            .put(`/exams/${examId}`)
+            .send({
+                examName: "Bài thi mẫu",
+            })
 
-    //     expect(res.statusCode).toEqual(200)
-    //     expect(res.body.exam.examName).toBe("Bài thi mẫu")
-    // })
+        expect(res.statusCode).toEqual(200)
+        expect(res.body.exam.examName).toBe("Bài thi mẫu")
+    }, 9999)
 
-    // test("should return the exam question length is 1 after updated", async () => {
-    //     const examId = "656c47000735857511ca036e";
-    //     const res = await request(app)
-    //         .put(`/exams/${examId}`)
-    //         .send({
-    //             examName: "Bài thi mẫu",
-    //             questions: [
-    //                 {
-    //                     _id: "656c47000735857511ca036f",
-    //                     questionContent: "1 + 1 = ?",
-    //                     options: [
-    //                         {
-    //                             option: "2",
-    //                             isCorrect: true
-    //                         },
-    //                         {
-    //                             option: "3",
-    //                             isCorrect: false
-    //                         },
-    //                         {
-    //                             option: "4",
-    //                             isCorrect: false
-    //                         },
-    //                     ]
-    //                 }
-    //             ]
-    //         })
+    test("Change questionContent and options", async () => {
+        const createNewExam = await request(app)
+            .post('/exams')
+            .send({
+                examName: "Math 2",
+                questions: [
+                    {
+                        questionContent: "3 - 1 + 2 = ?",
+                        options: [
+                            {
+                                option: "2",
+                                isCorrect: false
+                            },
+                            {
+                                option: "4",
+                                isCorrect: true
+                            },
+                            {
+                                option: "6",
+                                isCorrect: false
+                            },
+                        ]
+                    }
+                ]
+            })
 
-    //     expect(res.statusCode).toEqual(200)
-    //     expect(res.body.exam.questions.length).toBe(1)
-    // })
+        expect(createNewExam.statusCode).toEqual(201)
+        expect(createNewExam.body.exam.examName).toBe("Math 2")
 
-    test("", async () => {
+        const examId = createNewExam.body.exam._id;
+        const questionId = createNewExam.body.exam.questions[0]._id
+        const res = await request(app)
+            .put(`/exams/${examId}`)
+            .send({
+                questions: [
+                    {
+                        _id: questionId,
+                        questionContent: "2 + 1 - 3 = ?",
+                        options: [
+                            {
+                                option: "0",
+                                isCorrect: true
+                            },
+                            {
+                                option: "1",
+                                isCorrect: false
+                            },
+                            {
+                                option: "2",
+                                isCorrect: false
+                            },
+                            {
+                                option: "3",
+                                isCorrect: false
+                            },
+                        ]
+                    }
+                ]
+            })
+
+        expect(res.statusCode).toEqual(200)
+        expect(res.body.exam.questions.length).toBe(1)
+        expect(res.body.exam.examName).toBe("Math 2")
+
+        expect(res.body.exam.questions[0].questionContent).toBe("2 + 1 - 3 = ?")
+        expect(res.body.exam.questions[0].options.length).toBe(4)
+        expect(res.body.exam.questions[0].options[0].option).toBe("0")
+        expect(res.body.exam.questions[0].options[1].option).toBe("1")
+        expect(res.body.exam.questions[0].options[2].option).toBe("2")
+        expect(res.body.exam.questions[0].options[3].option).toBe("3")
+        expect(res.body.exam.questions[0].options[0].isCorrect).toBe(true)
+    })
+
+    test("Change examName, questionContent, options and add question", async () => {
         const createNewExam = await request(app)
             .post('/exams')
             .send({
@@ -208,5 +249,18 @@ describe("editExam", () => {
         expect(res.body.exam.questions[1].options[1].isCorrect).toBe(false)
         expect(res.body.exam.questions[1].options[2].isCorrect).toBe(false)
         expect(res.body.exam.questions[1].options[3].isCorrect).toBe(true)
+    })
+
+    test("edit an exam do not exist", async () => {
+        const examId = "656a7a3a7a930769aa9104aa";
+        const res = await request(app)
+            .put(`/exams/${examId}`)
+            .send({
+                examName: "new exam name"
+            })
+
+        expect(res.statusCode).toEqual(404)
+        expect(res.body.message).toBe("Exam not found")
+        // expect(res.body.exam.questions.length).toBe(2)
     })
 })
