@@ -1,0 +1,197 @@
+{
+  "numFailedTestSuites": 0,
+  "numFailedTests": 0,
+  "numPassedTestSuites": 1,
+  "numPassedTests": 9,
+  "numPendingTestSuites": 0,
+  "numPendingTests": 0,
+  "numRuntimeErrorTestSuites": 0,
+  "numTodoTests": 0,
+  "numTotalTestSuites": 1,
+  "numTotalTests": 9,
+  "openHandles": [],
+  "snapshot": {
+    "added": 0,
+    "didUpdate": false,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0
+  },
+  "startTime": 1701423158263,
+  "success": false,
+  "testResults": [
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 9,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1701423159654,
+        "runtime": 1255,
+        "slow": false,
+        "start": 1701423158399
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "C:\\Users\\Administrator\\Downloads\\SCRUM_TESTCLASS\\__test__\\loginStudent.test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Testing POST: /login"
+          ],
+          "duration": 461,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Testing POST: /login Test get response data |Number 1|--|Email: teacher@gmail.com|--|Password: teacher|--|Desired Output: Wrong Credentials!!|",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "Test get response data |Number 1|--|Email: teacher@gmail.com|--|Password: teacher|--|Desired Output: Wrong Credentials!!|"
+        },
+        {
+          "ancestorTitles": [
+            "Testing POST: /login"
+          ],
+          "duration": 2,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Testing POST: /login Start test Data |Email: teacher@gmail.com| |Password: teacher|",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "Start test Data |Email: teacher@gmail.com| |Password: teacher|"
+        },
+        {
+          "ancestorTitles": [
+            "Testing POST: /login"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Testing POST: /login 1: Should test response body available",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "1: Should test response body available"
+        },
+        {
+          "ancestorTitles": [
+            "Testing POST: /login"
+          ],
+          "duration": 2,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Testing POST: /login 2: Should test response status matched",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "2: Should test response status matched"
+        },
+        {
+          "ancestorTitles": [
+            "Testing POST: /login"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Testing POST: /login 3: Should test response body error message available if fail",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "3: Should test response body error message available if fail"
+        },
+        {
+          "ancestorTitles": [
+            "Testing POST: /login"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Testing POST: /login 4: Should test response body token message available if success",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "4: Should test response body token message available if success"
+        },
+        {
+          "ancestorTitles": [
+            "Testing POST: /login"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Testing POST: /login 5: Should test response body error message match if fail",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "5: Should test response body error message match if fail"
+        },
+        {
+          "ancestorTitles": [
+            "Testing POST: /login"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Testing POST: /login 6: Should test whether response data matched if success!",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "6: Should test whether response data matched if success!"
+        },
+        {
+          "ancestorTitles": [
+            "Testing POST: /login"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Testing POST: /login 7: Should for Allow Header Authorization in response!",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "7: Should for Allow Header Authorization in response!"
+        }
+      ],
+      "failureMessage": null
+    }
+  ],
+  "wasInterrupted": false
+}
