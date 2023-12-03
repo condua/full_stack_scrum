@@ -97,7 +97,7 @@ describe("editExam", () => {
                     }
                 ]
             })
-        
+
         expect(createNewExam.statusCode).toEqual(201)
         expect(createNewExam.body.exam.examName).toBe("Testing for edit exam feature")
 
