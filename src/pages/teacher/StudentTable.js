@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Table } from 'antd';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
+import { dateFormat } from '../../components/Format';
 const columns = [
   {
     title: 'STT',
@@ -32,6 +33,7 @@ const columns = [
     title: 'Thời gian nộp bài',
     dataIndex: 'time',
     key: '2',
+    render: time => dateFormat(time)
   },
   // {
   //   title: 'Action',
@@ -41,22 +43,7 @@ const columns = [
   //   render: () => <a>action</a>,
   // },
 ];
-const data = [
-  {
-    key: '1',
-    name: 'John Brown',
-    score: 32,
-    email: 'New York Park',
-    time: '9h00 11/11/2023'
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    score: 40,
-    email: 'London Park',
-    time: '9h00 11/11/2023'
-  },
-];
+
 const examname = 'PPL';
 const StudentTable = () => {
     const [submits, setSubmit] = useState([]);
@@ -68,7 +55,7 @@ const StudentTable = () => {
             setSubmit(res.data);
         }
         fetchSubmits();
-    }, [])
+    }, [id])
     return (
         <div>
           <h2 style={{ textAlign: 'center' }}>{examname}</h2>
