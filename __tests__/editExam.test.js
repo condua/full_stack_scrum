@@ -28,17 +28,45 @@ const request = require('supertest');
 // });
 
 describe("editExam", () => {
-    // test("should return the exam name after updated", async () => {
-    //     const examId = "656c47000735857511ca036e";
-    //     const res = await request(app)
-    //         .put(`/exams/${examId}`)
-    //         .send({
-    //             examName: "Bài thi mẫu",
-    //         })
+    test("should return the exam name after updated", async () => {
+        const createNewExam = await request(app)
+            .post('/exams')
+            .send({
+                examName: "Math",
+                questions: [
+                    {
+                        questionContent: "3 - 2= ?",
+                        options: [
+                            {
+                                option: "2",
+                                isCorrect: false
+                            },
+                            {
+                                option: "3",
+                                isCorrect: false
+                            },
+                            {
+                                option: "1",
+                                isCorrect: true
+                            },
+                        ]
+                    }
+                ]
+            })
 
-    //     expect(res.statusCode).toEqual(200)
-    //     expect(res.body.exam.examName).toBe("Bài thi mẫu")
-    // })
+        expect(createNewExam.statusCode).toEqual(201)
+        expect(createNewExam.body.exam.examName).toBe("Math")
+
+        const examId = createNewExam.body.exam._id;
+        const res = await request(app)
+            .put(`/exams/${examId}`)
+            .send({
+                examName: "Bài thi mẫu",
+            })
+
+        expect(res.statusCode).toEqual(200)
+        expect(res.body.exam.examName).toBe("Bài thi mẫu")
+    })
 
     // test("should return the exam question length is 1 after updated", async () => {
     //     const examId = "656c47000735857511ca036e";
@@ -91,7 +119,7 @@ describe("editExam", () => {
                             },
                             {
                                 option: "400",
-                                isCorrect: true
+                                isCorrect: false
                             },
                         ]
                     }
