@@ -1,5 +1,5 @@
 const app = require('../server');
-const request = require('supertest')
+const request = require('supertest');
 
 describe("getExam", () => {
     test("should return the exam with the given examId", async () => {
