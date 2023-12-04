@@ -1,31 +1,6 @@
 const app = require('../server');
 const request = require('supertest');
 
-// describe("getExam", () => {
-//     test("should return the exam with the given examId", async () => {
-//         const examId = "654e0a341855d584c53a3b7e";
-//         const res = await request(app)
-//             .get(`/exams/${examId}`)
-
-//         expect(res.statusCode).toEqual(200)
-//     });
-
-//     test("should return the exam name with the given examId", async () => {
-//         const examId = "654e0a341855d584c53a3b7e";
-//         const res = await request(app)
-//             .get(`/exams/${examId}`)
-
-//         expect(res.body.exam.examName).toBe("Thì hiện đại đơn trong tiếng anh");
-//     });
-
-//     test("should return the exam question length is greater than 0 with the given examId", async () => {
-//         const examId = "654e0a341855d584c53a3b7e";
-//         const res = await request(app)
-//             .get(`/exams/${examId}`)
-
-//         expect(res.body.exam.questions.length).toBeGreaterThan(0);
-//     });
-// });
 
 describe("editExam", () => {
     test("Should return the exam name after updated", async () => {
