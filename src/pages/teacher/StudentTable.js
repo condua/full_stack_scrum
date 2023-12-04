@@ -33,7 +33,7 @@ const columns = [
     title: 'Thời gian nộp bài',
     dataIndex: 'time',
     key: '2',
-    render: time => dateFormat(time)
+    render : time => dateFormat(time)
   },
   // {
   //   title: 'Action',
