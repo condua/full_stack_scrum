@@ -54,7 +54,7 @@ const Login = () => {
                         Login
                     </button>
                 </div>
-            <Link to={'/register'}> Register</Link>
+            <Link style={{marginTop:'20px'}} to={'/register'}> Don't have an account ? <span style={{color:'blue'}}>Register</span></Link>
             </div>
         </div>
     );

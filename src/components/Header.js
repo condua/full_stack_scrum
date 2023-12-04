@@ -5,6 +5,7 @@ import logo from '../logo.png';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
+  
 
   useEffect(() => {
     const handleResize = () => {
@@ -38,7 +39,11 @@ const Header = () => {
           <a href="/quiz">Câu hỏi trắc nghiệm</a>
           <a href="/quizkahoot">Kahoot Quiz</a>
           <a href="/ranking">Bảng xếp hạng</a> */}
-          <a href="/login">Logout</a>
+          <a href="/exams">Làm bài kiểm tra</a>
+          <a href="/teacher/exams">Tạo bài kiểm tra</a>
+          <a href="/teacher/examslist">Tổng hợp bài kiểm tra</a>
+
+          <a href="/login">Login</a>
 
         </div>
       </div>

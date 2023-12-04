@@ -19,18 +19,20 @@ function App() {
     <BrowserRouter>
       <Header/>
       <Routes>
+        <Route path='*' element={<Login/>}/>
+
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
+
         <Route path='/home' element={<Home/>}/>
         <Route path='/exams' element={<Exams/>}/>
         <Route path='/exams/:id' element={<ExamDetails/>}/>
 
-        <Route path='/teacher/exams' element={<CreateExam/>}/>
 
+        <Route path='/teacher/exams' element={<CreateExam/>}/>
         <Route path="/teacher/examslist" element={<ExamList/>} />
         <Route path="/teacher/examslistall" element={<ExamListAll/>} />
         <Route path="/teacher/list-submits/:id" element={<StudentTable/>} />
-
         <Route path="/teacher/examslist/edit/:id" element={<EditQuestion/>} />
         {/* <Route path='/joinroom' element={<JoinRoom/>}/> */}
       </Routes>

@@ -9,7 +9,7 @@ const QuestionInput = ({ index, questionData, onChange, onDelete }) => {
     setOptions([...options, { option: '', isCorrect: false }]);
   };
   
-
+  console.log(index)
 
   //Hàm xử lý thay đổi option
   const handleOptionChange = (optionIndex, newOption) => {
@@ -45,8 +45,8 @@ const QuestionInput = ({ index, questionData, onChange, onDelete }) => {
     <div className='QuestionInput'>
       <div className='question_content'>
         <span style={{width:'150px'}}>Question Content:</span>
-        <textarea type="text" value={questionContent} onChange={(e) => setQuestionContent(e.target.value)} onBlur={handleQuestionChange} />
-        <button onClick={handleAddOption}>Add Option</button>
+        <input id={`textQuestion${index}`} type="text" value={questionContent} onChange={(e) => setQuestionContent(e.target.value)} onBlur={handleQuestionChange} />
+        <button id={`add-option${index}`} onClick={handleAddOption}>Add Option</button>
         <button onClick={handleDeleteQuestion}>Delete Question</button>
 
       </div>
@@ -55,6 +55,7 @@ const QuestionInput = ({ index, questionData, onChange, onDelete }) => {
           <label className='option'>
             <span style={{width:'150px'}}>Option:</span>
             <input
+              id={`content-option${index}${optionIndex}`}
               type="text"
               value={option.option}
               onChange={(e) => handleOptionChange(optionIndex, { ...option, option: e.target.value })}
@@ -62,6 +63,7 @@ const QuestionInput = ({ index, questionData, onChange, onDelete }) => {
             />
             <span style={{width:'80px',paddingLeft:'20px'}}>Is correct:</span>
             <input
+              id={`isCorrect${index}${optionIndex}`}
               style={{width:'30px'}}
               type="checkbox"
               checked={option.isCorrect}

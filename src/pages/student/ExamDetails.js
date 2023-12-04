@@ -17,7 +17,8 @@ const ExamDetails = () => {
       [questionId]: { isCorrect },
     }));
   };
-
+  // const questionIds = Object.keys(answers);
+  // console.log(questionIds.length)
   const handleSubmit = async () => {
     let score = 0;
     const questionIds = Object.keys(answers);
@@ -28,16 +29,17 @@ const ExamDetails = () => {
         score++;
       }
     }
-    const totalQuestions = questionIds.length;
-    const adjustedScore = Math.floor((score / totalQuestions) * 10);
-
+    const totalQuestions = exam.questions.length
+    const adjustedScore = ((score / totalQuestions) * 10);
+    //console.log(totalQuestions)
+   
 
     const res = await  axios.post("http://localhost:5000/exam/submit",{
       userId,
       examId: id,
       score: adjustedScore
     })
-    alert(`Your score: ${res.data.score}`);
+    alert(`Your score: ${adjustedScore}`);
     navigate("/exams")
 
   };
@@ -47,6 +49,7 @@ const ExamDetails = () => {
       try {
         const response = await axios.get(`http://localhost:5000/exams/${id}`);
         setExam(response.data.exam);
+        console.log(response.data.exam.questions.length)
       } catch (error) {
         console.error('Error fetching exam details:', error);
         alert(error)
