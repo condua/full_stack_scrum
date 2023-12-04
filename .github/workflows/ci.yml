@@ -34,8 +34,3 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm test
-  build-and-deploy:
-    needs: test
-    uses: ./.github/workflows/build_n_deploy.yml
-    with:
-      image-tag: online-exam-app-api:"$(date +%s)"
