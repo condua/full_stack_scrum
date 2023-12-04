@@ -4,7 +4,10 @@ const chaiHttp = require('chai-http');
 
 chai.use(chaiHttp);
 const expect = chai.expect;
-const API = 'http://localhost:5000'
+const API = app.listen(5000, ()=>{
+  console.log('Node api app is running on port 5000')
+})
+
 describe('POST /exams', () => {
   it('should create a new exam', async () => {
     const newExamData = {
