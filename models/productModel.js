@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 
-let counter = 1; // Biến để theo dõi giá trị _id, bắt đầu từ 1
 
 const productSchema = mongoose.Schema(
     {
