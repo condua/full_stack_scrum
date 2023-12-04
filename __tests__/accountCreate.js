@@ -38,7 +38,7 @@ describe("createAccount", () => {
                 password: "JvFWNB8B76XbRivJ",
             })
 
-        expect(loginAccount.statusCode).toEqual(201)
+        expect(loginAccount.statusCode).toEqual(200)
         expect(loginAccount.body.user.email).toEqual("testemail1@junkmail.com");
 
         User.deleteOne({email: "testemail1@junkmail.com"})
