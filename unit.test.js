@@ -39,7 +39,7 @@ describe('POST /exams', () => {
     expect(response.body.message).to.equal('Exam created successfully');
     // expect(response.body.exam.examName).to.equal('Sample Exam');
     // expect(response.body.exam.questions.length).to.equal(1);
-  },100000);
+  },10000);
 
   it('should handle errors when creating an exam', async () => {
     const invalidExamData = {
@@ -62,5 +62,5 @@ describe('POST /exams', () => {
 
     expect(response).to.have.status(500);
     expect(response.body.error).to.equal('Internal server error');
-  },100000);
+  },10000);
 });
