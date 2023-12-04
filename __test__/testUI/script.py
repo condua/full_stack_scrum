@@ -9,7 +9,7 @@ from selenium.common.exceptions import NoSuchElementException, NoAlertPresentExc
 
 MAX_TIME_WAIT = 1
 TIME_TO_FULL_LOAD = 2
-TEST_DOMAIN_LOCAL = "http://localhost:3000"
+TEST_DOMAIN_LOCAL = "https://mybk.tech"
 LOGIN_ENDPOINT = "/login"
 
 class AutoSufer:
@@ -117,19 +117,22 @@ class TestUILogin(AutoSufer):
             if self.is_login_fail_displayed():
                 print(test_message + " SUCCESS")
             else:
-                print(test_message + " SUCCESS")
+                print(test_message + " FAILED")
+                raise Exception("EXCEPTION: Latest test has FAILED")
             return
 
         if role == "student":
             if self.is_student_after_login():
-                print(test_message + " SUCCESS")
+                print(test_message + "  SUCCESS")
             else:
                 print(test_message + " FAILED")
+                raise Exception("EXCEPTION: Latest test has FAILED")
         elif role == "teacher":
             if self.is_teacher_after_login():
                 print(test_message + " SUCCESS")
             else:
                 print(test_message + " FAILED")
+                raise Exception("EXCEPTION: Latest test has FAILED")
 
         self.wait()
 
@@ -142,8 +145,9 @@ if __name__ == "__main__":
 
     test_ui = TestUILogin(webdriver.Chrome(options=options))
 
-    with open('data.json') as test_data_file:
+    with open('../data.json') as test_data_file:
         test_data = json.loads( test_data_file.read() )
+
     
     # for test_item in test_data:
     #     print(test_item)
@@ -161,5 +165,3 @@ if __name__ == "__main__":
         test_number += 1
 
     test_ui.quit()
-
-    
