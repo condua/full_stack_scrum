@@ -11,6 +11,10 @@ const supertest = require('supertest');
 
 
 describe('POST /exams', () => {
+  afterAll(done => {
+    // Đóng server để giải phóng tài nguyên và cho Jest kết thúc
+    server.close(done);
+  });
   it('should create a new exam', async () => {
     const newExamData = {
       examName: 'Sample Exam',

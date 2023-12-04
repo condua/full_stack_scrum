@@ -397,7 +397,7 @@ app.delete('/products/:id', async(req,res)=>{
         res.status(500).json({message:error.message})
     }
 })
-app.listen(5000, ()=>{
+server = app.listen(5000, ()=>{
     console.log('Node api app is running on port 5000')
 })
 
