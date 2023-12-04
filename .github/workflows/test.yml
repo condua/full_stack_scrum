@@ -10,7 +10,7 @@ on:
 jobs:
   logintest:
     runs-on: ubuntu-latest
-    container: node:18
+    container: nikolaik/python-nodejs:python3.11-nodejs18-alpine
     steps:
       # - run: node --version
       # - run: npm --version
