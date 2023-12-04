@@ -5,11 +5,9 @@ name: test submit on
 
 on:
   push:
-    branches: 
-    - test-submit
+    branches: ["test-submit"]
   pull_request:
-    branches:
-    - test-submit
+    branches: ["test-submit"]
 
 jobs:
   build:
@@ -29,5 +27,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm i
-    - run: npm run serve
-    - run: npm run test
+    - run: npm run serve &
+    - run: npm run test &
