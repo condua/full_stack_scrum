@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const testLoginData = require("./testUI/data.json");
+const testLoginData = require("./data.json");
 const requester = require('./commonTest').requester;
 const mongoose = require('mongoose');
 
