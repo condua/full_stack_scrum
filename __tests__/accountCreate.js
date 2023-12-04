@@ -14,7 +14,7 @@ beforeAll(async () => {
 afterAll(async () => {
   await mongoose.connection.close();
 });
-/*
+
 describe("createAccount", () => {
     test("Should newly created account", async () => {
         const createNewAccount = await request(app)
@@ -69,4 +69,3 @@ describe("createDubAccount", () => {
         User.deleteOne({email: "testemail1@junkmail.com"})
     }, 9999)
 })
-*/
