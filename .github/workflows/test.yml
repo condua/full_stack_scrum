@@ -21,7 +21,7 @@ jobs:
       - run: node server.js &
       - run: npm run test
       - run: cd __test__/testUI/
-      - run: python script.py
+      - run: python3 script.py
       - run: kill -9 $(lsof -t -i:5000)
   # pytest:
   #   runs-on: ubuntu-latest
