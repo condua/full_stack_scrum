@@ -57,7 +57,7 @@ describe("createDubAccount", () => {
         const createDupAccount = await request(app)
             .post('/register')
             .send({
-                fullname: "Nguyen Van B",
+                fullname: "Nguyen Van A",
                 email: "testemail1@junkmail.com",
                 password: "tfqOPRmjtHKfIO5l",
                 role: "student"
