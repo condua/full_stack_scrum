@@ -17,6 +17,8 @@ afterAll(async () => {
 
 describe("createAccount", () => {
     test("Should newly created account", async () => {
+        User.deleteOne({email: "testemail1@junkmail.com"})
+
         const createNewAccount = await request(app)
             .post('/register')
             .send({
@@ -45,6 +47,8 @@ describe("createAccount", () => {
 
 describe("createDubAccount", () => {
     test("Should return error because email already in used", async () => {
+        User.deleteOne({email: "testemail1@junkmail.com"})
+
         await request(app)
             .post('/register')
             .send({
