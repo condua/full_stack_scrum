@@ -411,3 +411,4 @@ mongoose.connect('mongodb+srv://phanhoangphuc03111:phuc1755@cluster0.b576f71.mon
 })
 
 // module.exports = app.listen(5000)
+module.exports = app;

@@ -4,9 +4,11 @@ const chaiHttp = require('chai-http');
 
 chai.use(chaiHttp);
 const expect = chai.expect;
-const API = app.listen(5000, ()=>{
-  console.log('Node api app is running on port 5000')
-})
+const API = 'http://localhost:5000'
+const app = require('./server');
+const supertest = require('supertest');
+
+
 
 describe('POST /exams', () => {
   it('should create a new exam', async () => {
@@ -25,7 +27,7 @@ describe('POST /exams', () => {
     };
 
     const response = await chai
-      .request(API)
+      .request(app)
       .post('/exams')
       .send(newExamData);
 
@@ -50,7 +52,7 @@ describe('POST /exams', () => {
     };
 
     const response = await chai
-      .request(API)
+      .request(app)
       .post('/exams')
       .send(invalidExamData);
 
