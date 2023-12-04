@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const testLoginData = require("./testUI/data.json");
+const testLoginData = require("./data.json");
 const requester = require('./commonTest').requester;
 
 const secret = '33e63cdbf2c1b7c12bdef634d08f82bedc42a252963dfade0401af3c354cf3fa';
