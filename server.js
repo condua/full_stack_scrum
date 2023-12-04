@@ -142,6 +142,7 @@ app.post('/exams', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
 app.get('/exams', async (req, res) => {
   try {
     const exams = await Exam.find()
@@ -162,7 +163,7 @@ app.get('/exams/:id', async (req, res) => {
       return res.status(404).json({ message: 'Exam not found' });
     }
 
-    res.json({ exam });
+    res.status(200).json({ exam });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Internal Server Error' });
@@ -209,7 +210,7 @@ app.put('/exams/:id', async (req, res) => {
     // Save the updated exam
     exam = await exam.save();
 
-    res.json({ message: 'Exam updated successfully', exam });
+    res.status(200).json({ message: 'Exam updated successfully', exam });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Internal Server Error' });
