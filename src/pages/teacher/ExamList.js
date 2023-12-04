@@ -3,6 +3,16 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../../scss/pages/teacher/ExamList.scss'
 
+const deleteExams = async (id) => {
+  try {
+    console.log(id)
+    await axios.delete('http://localhost:5000/exams/' + id)
+    .then(res => console.log(res.data.message));
+  } catch (error) {
+    console.error('Error fetching exams:', error);
+  }
+};
+
 const ExamList = () => {
   const [exams, setExams] = useState([]);
 
@@ -34,6 +44,7 @@ const ExamList = () => {
           <td>Stt</td>
           <td>Name</td>
           <td>Action</td>
+          <td>Delete</td>
         </thead>
         <tbody>
         {
@@ -49,6 +60,9 @@ const ExamList = () => {
             <Link to={`/teacher/list-submits/${exam._id}`}>
               View
             </Link>
+            </td>
+            <td>
+            <button name='delete-button' onClick={() => deleteExams(exam._id)}>Delete</button>
             </td>
           </tr>
         ))

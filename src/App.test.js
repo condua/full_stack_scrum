@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import ExamList from './pages/teacher/ExamList.js' 
 
 test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
+  render(<ExamList />);
+  const linkElement = screen.getByRole('button', 'delete-button');
   expect(linkElement).toBeInTheDocument();
 });

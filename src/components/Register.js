@@ -21,7 +21,7 @@ const Register = () => {
         fullname,
         email,
         password,
-        role: 'student', // Set the role here
+        role: 'teacher', // Set the role here
       });
       console.log(response.data);
       alert(response.data.message);
