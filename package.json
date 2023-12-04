@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --testTimeout=5000",
+    "test": "jest --testTimeout=5000 --watchAll",
     "serve": "node server.js",
     "dev": "nodemon server.js"
   },
