@@ -153,9 +153,8 @@ app.get('/exams', async(req,res)=>{
 })
 
 app.get('/exams/:id', async (req, res) => {
-  const examId = req.params.id;
-
   try {
+      const examId = req.params.id;
       const exam = await Exam.findById(examId);
 
       if (!exam) {
