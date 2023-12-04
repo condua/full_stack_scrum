@@ -1,4 +1,4 @@
-name: CI Testing
+name: CI Testing_Phuc
 on:
   push:
     branches: [test/phuc]
