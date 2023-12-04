@@ -231,6 +231,100 @@ describe("editExam", () => {
         expect(res.body.exam.questions[1].options[3].isCorrect).toBe(true)
     })
 
+    test("Test data types", async () => {
+        const createNewExam = await request(app)
+            .post('/exams')
+            .send({
+                examName: "Testing for edit exam feature",
+                questions: [
+                    {
+                        questionContent: "100 + 200 = ?",
+                        options: [
+                            {
+                                option: "200",
+                                isCorrect: false
+                            },
+                            {
+                                option: "300",
+                                isCorrect: true
+                            },
+                            {
+                                option: "400",
+                                isCorrect: false
+                            },
+                        ]
+                    }
+                ]
+            })
+
+        const examId = createNewExam.body.exam._id;
+        const questionId = createNewExam.body.exam.questions[0]._id;
+        const res = await request(app)
+            .put(`/exams/${examId}`)
+            .send({
+                examName: "Test data types",
+                questions: [
+                    {
+                        _id: questionId,
+                        questionContent: "200 + 100 = ?",
+                        options: [
+                            {
+                                option: "300",
+                                isCorrect: true
+                            },
+                            {
+                                option: "200",
+                                isCorrect: false
+                            },
+                            {
+                                option: "400",
+                                isCorrect: false
+                            },
+                            {
+                                option: "100",
+                                isCorrect: false
+                            }
+                        ]
+                    },
+                    {
+                        questionContent: "50 + 70 = ?",
+                        options: [
+                            {
+                                option: "100",
+                                isCorrect: false
+                            },
+                            {
+                                option: "110",
+                                isCorrect: false
+                            },
+                            {
+                                option: "130",
+                                isCorrect: false
+                            },
+                            {
+                                option: "120",
+                                isCorrect: true
+                            }
+                        ]
+                    }
+                ]
+            })
+
+        const questions = res.body.exam.questions;
+        const examName = res.body.exam.examName;
+        expect(typeof examName).toBe("string");
+        expect(Array.isArray(questions)).toBe(true);
+
+        for (let i = 0; i < questions.length; i++) {
+            expect(typeof questions[i].questionContent).toBe("string");
+            expect(Array.isArray(questions[i].options)).toBe(true);
+            for (let j = 0; j < questions[i].options.length; j++) {
+                expect(typeof questions[i].options[j].option).toBe("string");
+                expect(typeof questions[i].options[j].isCorrect).toBe("boolean")
+            }
+        }
+    })
+
     test("edit an exam do not exist", async () => {
         const examId = "656a7a3a7a930769aa9104aa";
         const res = await request(app)

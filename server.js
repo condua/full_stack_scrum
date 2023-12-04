@@ -210,7 +210,7 @@ app.put('/exams/:id', async (req, res) => {
     // Save the updated exam
     exam = await exam.save();
 
-    res.status(200).json({ message: 'Exam updated successfully' });
+    res.status(200).json({ message: 'Exam updated successfully', exam });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Internal Server Error' });
