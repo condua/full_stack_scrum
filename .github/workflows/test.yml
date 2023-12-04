@@ -10,13 +10,13 @@ on:
 jobs:
   logintest:
     runs-on: ubuntu-latest
-    container: nikolaik/python-nodejs:python3.11-nodejs18-alpine
+    container: node:18
     steps:
       # - run: node --version
       # - run: npm --version
-      - run: apt-get update
-      - run: apt-get -qq install lsof
       - uses: actions/checkout@v3
+      - run: apt-get update
+      - run: apt-get -qq install lsof python3.11 python3-pip
       - run: npm i
       - run: node server.js &
       - run: pip install selenium
