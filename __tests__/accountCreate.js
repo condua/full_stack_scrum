@@ -17,7 +17,7 @@ afterAll(async () => {
 
 describe("createAccount", () => {
     test("Should newly created account", async () => {
-        User.deleteOne({email: "testemail1@junkmail.com"})
+        //User.deleteOne({email: "testemail1@junkmail.com"})
 
         const createNewAccount = await request(app)
             .post('/register')
