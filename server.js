@@ -270,6 +270,31 @@ app.delete('/exams/:id', async (req, res) => {
   }
 });
 
+
+// Test data types
+// Math 2
+// new exam name
+// Bài thi mẫu
+// Math
+// Testing for edit exam feature
+app.delete('/delete/exams/:name', async (req, res) => {
+  try {
+    // await Exam.deleteMany({ examName: req.params.name });
+    await Exam.deleteMany({ examName: 'Test data types' });
+    await Exam.deleteMany({ examName: 'Math 2' });
+    await Exam.deleteMany({ examName: 'new exam name' });
+    await Exam.deleteMany({ examName: 'Bài thi mẫu' });
+    await Exam.deleteMany({ examName: 'Math' });
+    await Exam.deleteMany({ examName: 'Testing for edit exam feature' });
+    
+    res.json({ message: 'Exam deleted successfully', });
+  } catch (error) {
+    console.log("check2");
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error', err: error.message });
+  }
+});
+
 app.delete('/exams/:id/questions/:questionId', async (req, res) => {
   const examId = req.params.id;
   const questionIdToDelete = req.params.questionId;
@@ -387,6 +412,7 @@ app.delete('/products/:id', async (req, res) => {
     res.status(500).json({ message: error.message })
   }
 })
+
 module.exports = app.listen(5000, () => {
   console.log('Node api app is running on port 5000')
 })
@@ -395,7 +421,7 @@ module.exports = app.listen(5000, () => {
 // connect to mongodb
 mongoose.connect('mongodb+srv://phanhoangphuc03111:phuc1755@cluster0.b576f71.mongodb.net/API-NODE?retryWrites=true&w=majority')
   .then(() => {
-    console.log('connected to MongoDB')
+    console.log('Connected to MongoDB')
   }).catch((error) => {
     console.log(error)
   })
