@@ -1,0 +1,34 @@
+name: TestLogin
+on:
+  pull_request:
+    branches:
+    - trung
+  push:
+    branches:
+    - trung
+  workflow_dispatch:
+jobs:
+  logintest:
+    runs-on: ubuntu-latest
+    container: node:18
+    steps:
+      # - run: node --version
+      # - run: npm --version
+      - run: apt-get update
+      - run: apt-get -qq install lsof
+      - uses: actions/checkout@v3
+      - run: npm i
+      - run: node server.js &
+      - run: npm run test
+      - run: cd __test__/testUI/
+      - run: python script.py
+      - run: kill -9 $(lsof -t -i:5000)
+  # pytest:
+  #   runs-on: ubuntu-latest
+  #   container: nikolaik/python-nodejs:python3.11-nodejs18-alpine
+  #   steps:
+  #     - run: apt-get update
+  #     - run: apt-get -qq install lsof
+  #     - run: node server.js &
+      
+  #     - run: kill -9 $(lsof -t -i:5000)
