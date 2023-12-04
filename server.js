@@ -12,6 +12,8 @@ const Exam = require('./models/exam');
 const authenticateToken = require('./middleWare/authenticateToken');
 const Submit = require('./models/submitModal');
 
+const { Types } = mongoose;
+
 const app = express()
 const router = express.Router();
 
@@ -151,22 +153,28 @@ app.get('/exams', async(req,res)=>{
     res.status(500).json({err:'Internal server error'})
   }
 })
-
 app.get('/exams/:id', async (req, res) => {
+  const examId = req.params.id;
+
+  // Check if examId is a valid ObjectId
+  if (!Types.ObjectId.isValid(examId)) {
+    return res.status(404).json({ message: 'Invalid Exam ID' });
+  }
+
   try {
-      const examId = req.params.id;
-      const exam = await Exam.findById(examId);
+    const exam = await Exam.findById(examId);
 
-      if (!exam) {
-          return res.status(404).json({ message: 'Exam not found' });
-      }
+    if (!exam) {
+      return res.status(404).json({ message: 'Exam not found' });
+    }
 
-      res.json({ exam });
+    res.json({ exam });
   } catch (err) {
-      console.error(err);
-      res.status(500).json({ message: 'Internal Server Error' });
+    console.error(err);
+    res.status(500).json({ message: 'Internal Server Error' });
   }
 });
+
 
 //put exams
 app.put('/exams/:id', async (req, res) => {
