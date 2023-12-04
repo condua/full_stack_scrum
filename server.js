@@ -44,10 +44,10 @@ app.post('/register', async (req, res) => {
   const { fullname, email, password, role } = req.body;
 
   // Kiểm tra xem username đã được sử dụng chưa
-  const existingUser = await User.findOne({ email });
+  const countUser = await User.countDocuments({ email });
 
-  if (existingUser) {
-    return res.status(400).json({ error: 'Username is already taken' });
+  if (1 === countUser) {
+    return res.status(400).json({ error: 'Email is already taken' });
   }
 
   const saltRounds = 10;

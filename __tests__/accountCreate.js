@@ -68,7 +68,7 @@ describe("createDubAccount", () => {
             })
 
         expect(createDupAccount.statusCode).toEqual(400)
-        expect(createDupAccount.body.error).toEqual("Username is already taken");
+        expect(createDupAccount.body.error).toEqual("Email is already taken");
 
         User.deleteOne({email: "testemail1@junkmail.com"})
     }, 9999)
