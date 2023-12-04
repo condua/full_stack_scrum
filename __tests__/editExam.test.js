@@ -1,5 +1,10 @@
 const app = require('../server');
 const request = require('supertest');
+const mongoose = require('mongoose');
+
+afterAll(async () => {
+    await mongoose.connection.close();
+});
 
 
 describe("editExam", () => {
