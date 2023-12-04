@@ -241,6 +241,5 @@ describe("editExam", () => {
 
         expect(res.statusCode).toEqual(404)
         expect(res.body.message).toBe("Exam not found")
-        // expect(res.body.exam.questions.length).toBe(2)
     })
 })
