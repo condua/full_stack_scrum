@@ -42,14 +42,14 @@ app.get('/blog', (req, res) => {
 
 app.post('/register', async (req, res) => {
   const { fullname, email, password, role } = req.body;
-
+/*
   // Kiểm tra xem username đã được sử dụng chưa
   const countUser = await User.countDocuments({ email: email });
 
   if (1 === countUser) {
     return res.status(400).json({ error: 'Email is already taken' });
   }
-
+*/
   const saltRounds = 10;
   const hashedPassword = await bcrypt.hash(password, saltRounds);
 
